@@ -15,7 +15,6 @@ h2 {
   padding: 0 20px;
 }
 
-
 .shine-text {
   background: linear-gradient(90deg, #a08fff, #fff, #a08fff);
   background-size: 200%;
@@ -27,6 +26,17 @@ h2 {
 @keyframes shine {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #particles-js {
@@ -47,19 +57,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
 }
 
 .logo img {
   height: 110px;
   width: auto;
-  display: block;
 }
 
 nav ul {
@@ -81,42 +83,18 @@ nav ul li a:hover {
 
 .hero {
   position: relative;
-  margin: 0 auto 60px auto;
   max-width: 1100px;
+  margin: 0 auto 60px auto;
   padding: 80px 20px;
   border-radius: 16px;
-  overflow: hidden;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 2px;
-  width: 100px;
-  background: linear-gradient(to left, #a08fff, transparent);
-  filter: drop-shadow(0 0 6px #a08fff);
-  animation: laserHorizontal 2.5s linear infinite;
-  z-index: 2;
-}
-
-@keyframes laserHorizontal {
-  0% { right: -120px; }
-  100% { right: 100%; }
-}
-
-.hero-content {
-  z-index: 2;
-  max-width: 600px;
-  text-align: left;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
 }
 
 .hero-content h2 {
@@ -127,8 +105,6 @@ nav ul li a:hover {
 .hero-content p {
   font-size: 1.3rem;
   margin-bottom: 30px;
-  text-align: left;
-  max-width: 600px;
 }
 
 .cta {
@@ -148,57 +124,70 @@ nav ul li a:hover {
   box-shadow: 0 0 12px #a08fff;
 }
 
+.hero-image img {
+  height: 280px;
+  width: auto;
+  filter: drop-shadow(0 0 25px #a08fff) brightness(1.15);
+  pointer-events: none;
+}
+
 section {
   padding: 80px 20px;
   max-width: 1100px;
   margin: 0 auto 60px auto;
   background: rgba(255, 255, 255, 0.07);
   border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
 }
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .video-grid iframe {
-  aspect-ratio: 9 / 16;
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(160, 143, 255, 0.3);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(160, 143, 255, 0.25);
+  loading: lazy;
 }
 
 .video-grid iframe:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(160, 143, 255, 0.6);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(160, 143, 255, 0.4);
 }
 
 .clientes-horizontal {
   display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .clientes-horizontal img {
-  height: 100px;
-  max-width: 180px;
-  transition: transform 0.4s ease;
+  max-height: 100px;
+  max-width: 200px;
   object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .clientes-horizontal img.maior {
-  height: 120px;
-  max-width: 200px;
+  max-height: 120px;
 }
 
 .clientes-horizontal img:hover {
-  transform: scale(1.15);
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(160, 143, 255, 0.4);
 }
 
 .softwares-grid {
@@ -214,59 +203,13 @@ section {
   height: auto;
 }
 
-footer {
-  background: #0d0d1a;
-  color: white;
-  padding: 60px 40px;
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-  align-items: flex-start;
-  text-align: left;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-  will-change: transform, opacity;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-image {
-  z-index: 2;
-  opacity: 0.85;
-  animation: floatAndRotate 4s ease-in-out infinite;
-}
-
-.hero-image img {
-  height: 280px;
-  width: auto;
-  filter: drop-shadow(0 0 25px #a08fff) brightness(1.15);
-  pointer-events: none;
-}
-
-@keyframes floatAndRotate {
-  0% { transform: translateY(0) rotateZ(0deg); }
-  25% { transform: translateY(-10px) rotateZ(1.2deg); }
-  50% { transform: translateY(0) rotateZ(0deg); }
-  75% { transform: translateY(-10px) rotateZ(-1.2deg); }
-  100% { transform: translateY(0) rotateZ(0deg); }
-}
-
-
 .footer-espaco {
   background: #0d0d1a;
   color: white;
   padding: 60px 40px;
   font-size: 1.1rem;
 }
+
 .footer-container {
   display: flex;
   gap: 60px;
@@ -275,31 +218,38 @@ footer {
   margin: 0 auto;
   flex-wrap: wrap;
 }
+
 .footer-col {
   flex: 1;
   min-width: 220px;
 }
+
 .footer-col h3 {
   font-size: 1.5rem;
   color: #a08fff;
   margin-bottom: 16px;
 }
+
 .footer-col ul {
   list-style: none;
   padding: 0;
 }
+
 .footer-col ul li {
   margin: 10px 0;
 }
+
 .footer-col a {
   color: white;
   text-decoration: none;
   transition: color 0.3s;
   font-size: 1.1rem;
 }
+
 .footer-col a:hover {
   color: #a08fff;
 }
+
 .btn-whatsapp {
   display: inline-block;
   background-color: #25d366;
@@ -312,36 +262,46 @@ footer {
   text-decoration: none;
   transition: background 0.3s;
 }
+
 .btn-whatsapp:hover {
   background-color: #1ebe5b;
 }
+
 .icon {
   width: 60px;
   vertical-align: middle;
   margin-right: 8px;
 }
+
 .social-icons {
   display: flex;
   gap: 24px;
   align-items: center;
   margin-top: 12px;
 }
+
 .social-icons img {
   width: 55px;
-  height: px;
   transition: transform 0.3s;
 }
+
 .social-icons img:hover {
   transform: scale(1.2);
 }
+
 @media (max-width: 767px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
   .social-icons {
     justify-content: center;
   }
 }
-
