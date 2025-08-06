@@ -87,14 +87,14 @@ nav ul li a:hover {
   margin: 0 auto 60px auto;
   padding: 80px 20px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
 }
 
 .hero-content h2 {
@@ -135,11 +135,11 @@ section {
   padding: 80px 20px;
   max-width: 1100px;
   margin: 0 auto 60px auto;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.2);
 }
 
 .video-grid {
@@ -153,14 +153,12 @@ section {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 0 20px rgba(160, 143, 255, 0.25);
+  transition: transform 0.3s ease;
   loading: lazy;
 }
 
 .video-grid iframe:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(160, 143, 255, 0.4);
 }
 
 .clientes-horizontal {
@@ -174,20 +172,22 @@ section {
   margin: 0 auto;
 }
 
-.clientes-horizontal img {
+.clientes-horizontal img,
+.softwares-grid img {
   max-height: 100px;
   max-width: 200px;
   object-fit: contain;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
 }
 
 .clientes-horizontal img.maior {
   max-height: 120px;
 }
 
-.clientes-horizontal img:hover {
+.clientes-horizontal img:hover,
+.softwares-grid img:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(160, 143, 255, 0.4);
 }
 
 .softwares-grid {
@@ -196,11 +196,6 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 30px;
-}
-
-.softwares-grid img {
-  width: 70px;
-  height: auto;
 }
 
 .footer-espaco {
